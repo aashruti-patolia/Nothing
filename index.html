@@ -2,150 +2,202 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>For Ram, from Aashruti</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Segoe UI', sans-serif;
-            background: linear-gradient(120deg, #ffd1dc, #fff0f5);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            overflow: hidden;
-            text-align: center;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>For Ram, from Aashruti</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(120deg, #ffdbe4, #fff0f5);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      text-align: center;
+      overflow-x: hidden;
+      padding: 20px;
+    }
 
-        h1 {
-            font-size: 2rem;
-            animation: fadeIn 2s ease-in-out;
-            margin-bottom: 30px;
-            color: #c71585;
-        }
+    h1 {
+      font-size: 2rem;
+      animation: fadeIn 2s ease-in-out;
+      margin-bottom: 10px;
+      color: #c71585;
+    }
 
-        .gifts {
-            display: flex;
-            gap: 40px;
-        }
+    h2 {
+      font-size: 1.2rem;
+      color: #8b004b;
+      margin-bottom: 30px;
+    }
 
-        .gift-box {
-            width: 150px;
-            height: 150px;
-            background: url('nice-gift-with-red-ribbon-ready-birthday.png') no-repeat center/cover;
-            cursor: pointer;
-            transition: transform 0.4s;
-        }
+    .gifts {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
 
-        .gift-box:hover {
-            transform: scale(1.1);
-        }
+    .gift-box {
+      width: 140px;
+      height: 140px;
+      background: url('nice-gift-with-red-ribbon-ready-birthday.png') no-repeat center/cover;
+      cursor: pointer;
+      transition: transform 0.4s, box-shadow 0.3s;
+      animation: popIn 1.5s ease;
+      border-radius: 15px;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    }
 
-        .modal {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.7);
-            display: none;
-            justify-content: center;
-            align-items: center;
-            z-index: 10;
-        }
+    .gift-box:hover {
+      transform: scale(1.1);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
 
-        .modal-content {
-            background: white;
-            border-radius: 15px;
-            padding: 20px;
-            max-width: 400px;
-            text-align: center;
-            animation: slideUp 0.6s ease;
-        }
+    .modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.7);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 10;
+      padding: 20px;
+    }
 
-        .rose {
-            width: 150px;
-            margin: 20px auto;
-        }
+    .modal-content {
+      background: white;
+      border-radius: 15px;
+      padding: 25px;
+      max-width: 90%;
+      text-align: center;
+      animation: slideUp 0.6s ease;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    }
 
-        @keyframes fadeIn {
-            0% {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
+    .rose {
+      width: 150px;
+      margin: 20px auto;
+    }
 
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+    .hug-emoji {
+      font-size: 4rem;
+      animation: hugAnim 1s infinite;
+    }
 
-        @keyframes slideUp {
-            from {
-                transform: translateY(100px);
-                opacity: 0;
-            }
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
 
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
 
-        .hug-emoji {
-            font-size: 4rem;
-            animation: hugAnim 1s infinite;
-        }
+    @keyframes slideUp {
+      from {
+        transform: translateY(100px);
+        opacity: 0;
+      }
 
-        @keyframes hugAnim {
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
 
-            0%,
-            100% {
-                transform: scale(1);
-            }
+    @keyframes hugAnim {
+      0%, 100% {
+        transform: scale(1);
+      }
 
-            50% {
-                transform: scale(1.2);
-            }
-        }
-    </style>
+      50% {
+        transform: scale(1.2);
+      }
+    }
+
+    @keyframes popIn {
+      0% {
+        transform: scale(0);
+        opacity: 0;
+      }
+
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    /* Mobile friendly adjustments */
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 1.6rem;
+      }
+
+      h2 {
+        font-size: 1rem;
+        margin-bottom: 20px;
+      }
+
+      .gift-box {
+        width: 120px;
+        height: 120px;
+      }
+
+      .rose {
+        width: 100px;
+      }
+
+      .hug-emoji {
+        font-size: 3rem;
+      }
+    }
+  </style>
 </head>
 
 <body>
-    <h1 id="welcome-text">Hello, Aashruti's boyfriend Ram.</h1>
-    <h2>Why to pick one, when you can pick all the three)</h2>
-    <div class="gifts">
-        <div class="gift-box" onclick="openGift(1)"></div>
-        <div class="gift-box" onclick="openGift(2)"></div>
-        <div class="gift-box" onclick="openGift(3)"></div>
-    </div>
+  <h1 id="welcome-text">Hello, Aashruti's boyfriend Ram.</h1>
+  <h2>(Why to pick one, when you can pick all three?)</h2>
 
-    <div class="modal" id="modal">
-        <div class="modal-content" id="modal-content"></div>
-    </div>
+  <div class="gifts">
+    <div class="gift-box" onclick="openGift(1)"></div>
+    <div class="gift-box" onclick="openGift(2)"></div>
+    <div class="gift-box" onclick="openGift(3)"></div>
+  </div>
 
-    <script>
-        function openGift(num) {
-            const modal = document.getElementById("modal");
-            const content = document.getElementById("modal-content");
+  <div class="modal" id="modal">
+    <div class="modal-content" id="modal-content"></div>
+  </div>
 
-            if (num === 1) {
-                content.innerHTML = `<h1>Postcard for Ram</h1><p>My dearest Ram, You need to know that I am your biggest FAN gurlll fr! Falling for the Tony Stark stuff you are doing rn. Thiss was to annoy you more and let you know that I exist. See you Tonight... lot of lovsieeeee <br><br><br><br>Yours, Aashruti ❤️</p>`;
-            } else if (num === 2) {
-                content.innerHTML = `<img src="rose.png" class="rose" alt="Rose Bouquet" /><p>Sendingg you the <b>flowers and love</b> my pookie boiiii. Keep Smiling.</p>`;
-            } else if (num === 3) {
-                content.innerHTML = `<div class="hug-emoji">🤗</div><p>Sending you the warmest hug. Feel my arms around you ❤️</p>`;
-            }
-            modal.style.display = "flex";
-        }
+  <script>
+    function openGift(num) {
+      const modal = document.getElementById("modal");
+      const content = document.getElementById("modal-content");
 
-        document.getElementById("modal").onclick = function () {
-            this.style.display = "none";
-        };
-    </script>
+      if (num === 1) {
+        content.innerHTML = `<h1>Postcard for Ram</h1><p>My dearest Ram, You need to know that I am your biggest FAN gurlll fr! Falling for the Tony Stark stuff you are doing rn. Thiss was to annoy you more and let you know that I exist. See you Tonight... lot of lovsieeeee ❤️<br><br>Yours, Aashruti</p>`;
+      } else if (num === 2) {
+        content.innerHTML = `<img src="rose.png" class="rose" alt="Rose Bouquet" /><p>Sendingg you the <b>flowers and love</b> my pookie boiiii. Keep Smiling 🌹</p>`;
+      } else if (num === 3) {
+        content.innerHTML = `<div class="hug-emoji">🤗</div><p>Sending you the warmest hug. Feel my arms around you ❤️</p>`;
+      }
+
+      modal.style.display = "flex";
+    }
+
+    document.getElementById("modal").onclick = function () {
+      this.style.display = "none";
+    };
+  </script>
 </body>
 
 </html>
